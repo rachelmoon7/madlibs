@@ -68,7 +68,12 @@ def show_madlib_form():
 @app.route("/madlib")
 def show_madlib():
     """Fills out madlib with user inputs"""
-    return render_template("madlib.html", )
+    person = request.form.get("person")
+    color = request.form.get("color")
+    noun = request.form.get("noun")
+    adjective = request.form.get("adjective")
+    
+    return render_template("madlib.html", person=person, color=color, noun=noun, adjective=adjective)
 
 if __name__ == "__main__":
     # Setting debug=True gives us error messages in the browser and also
