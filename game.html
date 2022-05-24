@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
-<!-- <head>
+<head>
   <link rel="stylesheet" href="/static/css/madlibs.css">
-</head> -->
+</head>
 <body>
   <h1>Fill in the blanks</h1>
+  
   <form action="/madlib">
     Give us a person<input type="text" name="person">
     Give us a color: <input type="text" name="color">
     Give us a noun:<input type="text" name="noun">
     Give us an adjective:<input type="text" name="adjective">
-    Give us a place:<input type="text" name = "place">
-    <input type="submit">
+    Give us a place:<input type="text" name="place">
+    Give us a plant:<input type="text" name="plant">
+    
+    <label for="animal">Choose an animal:</label>
+      <select name="animal" id="animal">
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+        <option value="rabbit">Rabbit</option>
+        <option value="penguin">Penguin</option>
+      </select>
+    
   </form>
+
+    <input type="submit">
+ 
 </body>
 </html>

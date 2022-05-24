@@ -25,7 +25,6 @@ AWESOMENESS = [
     "lovely",
 ]
 
-
 @app.route("/")
 def start_here():
     """Display homepage."""
@@ -54,17 +53,12 @@ def greet_person():
 def show_madlib_form():
     """Asks user if they'd like to play a game."""
     choice = request.form.get("choice")
-    person = request.form.get("person")
-    color = request.form.get("color")
-    noun = request.form.get("noun")
-    adjective = request.form.get("adjective")
-    place = request.form.get("place")
 
     if choice == "Yes":
-       return render_template("game.html", person=person, color=color, noun=noun, adjective=adjective, place=place)
-
+       return render_template("game.html")
     else:
        return render_template("goodbye.html")
+
 
 @app.route("/madlib")
 def show_madlib():
@@ -75,8 +69,11 @@ def show_madlib():
     noun = request.args.get("noun")
     adjective = request.args.get("adjective")
     place = request.args.get("place")
+    plant = request.args.get("plant")
+    animal = request.args.get("animal")
 
-    return render_template("madlib.html", person=person, color=color, noun=noun, adjective=adjective, place=place)
+    return render_template("madlib.html", person=person, color=color, noun=noun, adjective=adjective, place=place, plant=plant, animal=animal)
+
 
 if __name__ == "__main__":
     # Setting debug=True gives us error messages in the browser and also
