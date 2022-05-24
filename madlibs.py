@@ -58,9 +58,10 @@ def show_madlib_form():
     color = request.form.get("color")
     noun = request.form.get("noun")
     adjective = request.form.get("adjective")
-    
+    place = request.form.get("place")
+
     if choice == "Yes":
-       return render_template("game.html", person=person, color=color, noun=noun, adjective=adjective)
+       return render_template("game.html", person=person, color=color, noun=noun, adjective=adjective, place=place)
 
     else:
        return render_template("goodbye.html")
@@ -68,12 +69,14 @@ def show_madlib_form():
 @app.route("/madlib")
 def show_madlib():
     """Fills out madlib with user inputs"""
-    person = request.form.get("person")
-    color = request.form.get("color")
-    noun = request.form.get("noun")
-    adjective = request.form.get("adjective")
-    
-    return render_template("madlib.html", person=person, color=color, noun=noun, adjective=adjective)
+   
+    person = request.args.get("person")
+    color = request.args.get("color")
+    noun = request.args.get("noun")
+    adjective = request.args.get("adjective")
+    place = request.args.get("place")
+
+    return render_template("madlib.html", person=person, color=color, noun=noun, adjective=adjective, place=place)
 
 if __name__ == "__main__":
     # Setting debug=True gives us error messages in the browser and also
